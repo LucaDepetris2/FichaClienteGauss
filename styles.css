@@ -9,8 +9,8 @@
 
 body {
   font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
-  background-color: #e8eef4;
-  color: #1a2a4a;
+  background-color: #f5f6f7;
+  color: #1f2937;
   min-height: 100vh;
 }
 
@@ -48,26 +48,26 @@ body {
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.05em;
-  color: #1a2a4a;
+  color: #1f2937;
   text-transform: uppercase;
 }
 
 .tagline-muted {
   font-weight: 400;
-  color: #5a6a8a;
+  color: #6b7280;
 }
 
 .company-name {
   font-size: 2.6rem;
   font-weight: 800;
   letter-spacing: 0.04em;
-  color: #1a2a4a;
+  color: #1f2937;
   line-height: 1.1;
 }
 
 .company-subtitle {
   font-size: 0.9rem;
-  color: #5a6a8a;
+  color: #6b7280;
   margin-top: 2px;
 }
 
@@ -83,7 +83,7 @@ body {
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.06em;
-  color: #1a2a4a;
+  color: #1f2937;
   text-transform: uppercase;
   white-space: nowrap;
 }
@@ -93,9 +93,9 @@ body {
   padding: 8px 32px 8px 12px;
   font-size: 0.9rem;
   font-family: inherit;
-  color: #1a2a4a;
+  color: #1f2937;
   background-color: #fff;
-  border: 1.5px solid #c0ccd8;
+  border: 1.5px solid #d1d5db;
   border-radius: 6px;
   cursor: pointer;
   min-width: 180px;
@@ -131,7 +131,7 @@ body {
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.06em;
-  color: #1a2a4a;
+  color: #1f2937;
   text-transform: uppercase;
   transition: border-color 0.2s, color 0.2s;
   flex: 1;
@@ -184,15 +184,15 @@ body {
 .panel-title {
   font-size: 1.4rem;
   font-weight: 700;
-  color: #1a2a4a;
+  color: #1f2937;
   margin-bottom: 16px;
-  border-bottom: 2px solid #e8eef4;
+  border-bottom: 2px solid #e5e7eb;
   padding-bottom: 10px;
 }
 
 .content-area p {
   font-size: 0.95rem;
-  color: #4a5a7a;
+  color: #4b5563;
   line-height: 1.7;
   margin-bottom: 12px;
 }
@@ -209,7 +209,7 @@ body {
 
 .program-card {
   background: #fff;
-  border: 1.5px solid #dde4ec;
+  border: 1.5px solid #e5e7eb;
   border-radius: 10px;
   padding: 18px 20px;
   display: flex;
@@ -233,7 +233,7 @@ body {
 .program-card-title {
   font-size: 1rem;
   font-weight: 700;
-  color: #1a2a4a;
+  color: #1f2937;
   line-height: 1.3;
 }
 
@@ -241,7 +241,7 @@ body {
   background: none;
   border: none;
   cursor: pointer;
-  color: #7a8aaa;
+  color: #9ca3af;
   font-size: 1.1rem;
   padding: 0;
   line-height: 1;
@@ -255,21 +255,21 @@ body {
 
 .program-empresa {
   font-size: 0.8rem;
-  color: #5a6a8a;
+  color: #6b7280;
   margin: 0;
 }
 
 .program-desc-label {
   font-size: 0.78rem;
   font-weight: 700;
-  color: #1a2a4a;
+  color: #1f2937;
   margin-top: 6px;
   margin-bottom: 0;
 }
 
 .program-desc {
   font-size: 0.85rem;
-  color: #4a5a7a;
+  color: #4b5563;
   line-height: 1.55;
   margin: 0;
 }
@@ -303,7 +303,7 @@ body {
   align-items: center;
   gap: 7px;
   padding: 9px 20px;
-  border: 2px solid #dde4ec;
+  border: 2px solid #e5e7eb;
   border-radius: 8px;
   background: #fff;
   cursor: pointer;
@@ -311,7 +311,7 @@ body {
   font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.06em;
-  color: #5a6a8a;
+  color: #6b7280;
   text-transform: uppercase;
   transition: border-color 0.18s, color 0.18s, background 0.18s;
 }
@@ -353,7 +353,7 @@ body {
   display: flex;
   align-items: center;
   padding: 0 8px;
-  color: #8a9ab0;
+  color: #9ca3af;
   flex-shrink: 0;
 }
 
@@ -366,7 +366,7 @@ body {
 .proc-card {
   width: 220px;
   background: #fff;
-  border: 1.5px solid #dde4ec;
+  border: 1.5px solid #e5e7eb;
   border-radius: 12px;
   padding: 14px 14px 12px;
   box-shadow: 0 2px 10px rgba(0,0,0,0.06);
@@ -390,7 +390,7 @@ body {
   bottom: 0;
   width: 4px;
   border-radius: 12px 0 0 12px;
-  background: #c0ccd8;
+  background: #d1d5db;
 }
 
 .proc-card.tipo-manual::before         { background: #4a7aaa; }
@@ -423,7 +423,7 @@ body {
   font-size: 0.62rem;
   font-weight: 700;
   letter-spacing: 0.04em;
-  color: #8a9ab0;
+  color: #9ca3af;
   text-transform: uppercase;
   white-space: nowrap;
 }
@@ -446,16 +446,16 @@ body {
   font-size: 0.68rem;
   font-weight: 700;
   white-space: nowrap;
-  background: #f0f4f8;
-  color: #4a5a7a;
-  border: 1px solid #e0e8f0;
+  background: #f9fafb;
+  color: #4b5563;
+  border: 1px solid #e5e7eb;
 }
 
 /* Process name */
 .proc-nombre {
   font-size: 0.95rem;
   font-weight: 700;
-  color: #1a2a4a;
+  color: #1f2937;
   margin-bottom: 12px;
   padding-left: 6px;
   line-height: 1.25;
@@ -467,7 +467,7 @@ body {
   flex-direction: column;
   gap: 5px;
   padding-left: 6px;
-  border-top: 1px solid #edf1f6;
+  border-top: 1px solid #f3f4f6;
   padding-top: 10px;
   margin-bottom: 8px;
 }
@@ -486,11 +486,11 @@ body {
   flex-shrink: 0;
 }
 .proc-param-dot.activo   { background: #2e8a52; }
-.proc-param-dot.inactivo { background: #c0ccd8; }
+.proc-param-dot.inactivo { background: #d1d5db; }
 
 .proc-param-label {
   flex: 1;
-  color: #5a6a8a;
+  color: #6b7280;
 }
 
 .proc-param-val {
@@ -500,7 +500,7 @@ body {
   border-radius: 10px;
 }
 .proc-param-val.activo   { background: #e8f5ee; color: #2e7a4a; }
-.proc-param-val.inactivo { background: #f0f4f8; color: #8a9ab0; }
+.proc-param-val.inactivo { background: #f9fafb; color: #9ca3af; }
 
 /* Alert strip */
 .proc-alerta {
@@ -530,14 +530,14 @@ body {
    CONTABLE
    ============================ */
 .content-area.contable-active {
-  background: #edf1f6;
+  background: #f3f4f6;
 }
 
 .contable-banner {
   font-size: 0.9rem;
   font-weight: 800;
   letter-spacing: 0.055em;
-  color: #1a2a4a;
+  color: #1f2937;
   text-transform: uppercase;
   margin-bottom: 14px;
 }
@@ -550,20 +550,20 @@ body {
 
 .contable-col-header {
   background: #fff;
-  border: 1.5px solid #b8c8d8;
+  border: 1.5px solid #d1d5db;
   border-bottom: none;
   border-radius: 8px 8px 0 0;
   padding: 10px 14px;
   font-size: 0.78rem;
   font-weight: 800;
   letter-spacing: 0.07em;
-  color: #1a2a4a;
+  color: #1f2937;
   text-align: center;
 }
 
 .contable-col-body {
   background: #fff;
-  border: 1.5px solid #b8c8d8;
+  border: 1.5px solid #d1d5db;
   border-radius: 0 0 8px 8px;
   padding: 16px 14px;
   min-height: 180px;
@@ -572,7 +572,7 @@ body {
 .contable-section-title {
   font-size: 0.95rem;
   font-weight: 700;
-  color: #1a2a4a;
+  color: #1f2937;
   line-height: 1.35;
   margin-bottom: 14px;
 }
@@ -583,7 +583,7 @@ body {
   align-items: center;
   gap: 8px;
   padding: 9px 10px;
-  border: 1.5px solid #e0e8f0;
+  border: 1.5px solid #e5e7eb;
   border-radius: 6px;
   margin-bottom: 7px;
   cursor: pointer;
@@ -603,7 +603,7 @@ body {
 .vfp-radio {
   font-family: 'Courier New', monospace;
   font-size: 0.82rem;
-  color: #1a2a4a;
+  color: #1f2937;
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -612,7 +612,7 @@ body {
   flex: 1;
   font-size: 0.83rem;
   font-weight: 600;
-  color: #1a2a4a;
+  color: #1f2937;
   line-height: 1.3;
 }
 
@@ -622,7 +622,7 @@ body {
   align-items: center;
   gap: 7px;
   padding: 10px 4px;
-  border-bottom: 1px solid #edf1f6;
+  border-bottom: 1px solid #f3f4f6;
 }
 
 .impositivo-row:last-child { border-bottom: none; }
@@ -631,7 +631,7 @@ body {
   flex: 1;
   font-size: 0.83rem;
   font-weight: 600;
-  color: #1a2a4a;
+  color: #1f2937;
 }
 
 .toggle-si {
@@ -653,14 +653,14 @@ body {
 
 .toggle-si:not(.active) {
   background: none;
-  color: #8a9ab0;
+  color: #9ca3af;
   border-color: #c8d4e0;
 }
 
 .toggle-no {
   font-size: 0.75rem;
   font-weight: 700;
-  color: #8a9ab0;
+  color: #9ca3af;
   cursor: pointer;
   background: none;
   border: none;
@@ -700,14 +700,14 @@ body {
 .int-box-text {
   font-size: 0.9rem;
   font-weight: 700;
-  color: #1a2a4a;
+  color: #1f2937;
   flex: 1;
   line-height: 1.3;
 }
 
 .int-desc {
   font-size: 0.8rem;
-  color: #4a5a7a;
+  color: #4b5563;
   line-height: 1.55;
   text-align: center;
 }
@@ -762,14 +762,14 @@ body {
   align-items: center;
   gap: 6px;
   padding: 10px 18px;
-  background: #f0f4f8;
-  border: 1.5px solid #dde4ec;
+  background: #f9fafb;
+  border: 1.5px solid #e5e7eb;
   border-radius: 8px;
   margin-bottom: 16px;
   font-size: 0.82rem;
   font-weight: 700;
   letter-spacing: 0.04em;
-  color: #1a2a4a;
+  color: #1f2937;
   width: 100%;
   box-sizing: border-box;
 }
@@ -785,7 +785,7 @@ body {
   align-items: center;
   gap: 10px;
   padding: 10px 8px 10px 10px;
-  border: 1.5px solid #dde4ec;
+  border: 1.5px solid #e5e7eb;
   border-radius: 10px;
   background: #fff;
   cursor: pointer;
@@ -841,7 +841,7 @@ body {
 .usuario-nombre {
   font-size: 0.84rem;
   font-weight: 700;
-  color: #1a2a4a;
+  color: #1f2937;
   line-height: 1.25;
 }
 
@@ -975,14 +975,14 @@ body {
 .alerta-nombre {
   font-size: 0.82rem;
   font-weight: 700;
-  color: #1a2a4a;
+  color: #1f2937;
   flex: 1;
   line-height: 1.3;
 }
 
 .alerta-desc {
   font-size: 0.78rem;
-  color: #5a6a8a;
+  color: #6b7280;
   line-height: 1.45;
   padding-left: 30px;
 }
@@ -1004,7 +1004,7 @@ body {
 }
 
 .integracion-grupo {
-  border: 1.5px solid #dde4ec;
+  border: 1.5px solid #e5e7eb;
   border-radius: 10px;
   padding: 16px 18px;
 }
@@ -1012,7 +1012,7 @@ body {
 .grupo-titulo {
   font-size: 1rem;
   font-weight: 700;
-  color: #1a2a4a;
+  color: #1f2937;
   margin-bottom: 12px;
 }
 
@@ -1056,7 +1056,7 @@ body {
 .item-nombre {
   font-size: 0.82rem;
   font-weight: 600;
-  color: #1a2a4a;
+  color: #1f2937;
   flex: 1;
   line-height: 1.3;
 }
@@ -1081,14 +1081,14 @@ body {
 }
 
 .api-table thead tr {
-  border-bottom: 2px solid #dde4ec;
+  border-bottom: 2px solid #e5e7eb;
 }
 
 .api-table th {
   text-align: left;
   font-size: 0.82rem;
   font-weight: 700;
-  color: #1a2a4a;
+  color: #1f2937;
   padding: 8px 14px 10px;
   white-space: nowrap;
 }
@@ -1100,9 +1100,9 @@ body {
 
 .api-table td {
   padding: 14px 14px;
-  color: #1a2a4a;
+  color: #1f2937;
   vertical-align: middle;
-  border-bottom: 1px solid #edf1f6;
+  border-bottom: 1px solid #f3f4f6;
 }
 
 .api-table td:first-child {
@@ -1114,7 +1114,7 @@ body {
 }
 
 .api-table tbody tr:hover td {
-  background: #f7fafc;
+  background: #f9fafb;
 }
 
 .api-nombre {
@@ -1122,11 +1122,11 @@ body {
 }
 
 .api-empresa {
-  color: #4a5a7a;
+  color: #4b5563;
 }
 
 .api-estado-texto {
-  color: #4a5a7a;
+  color: #4b5563;
 }
 
 .status-dot {
@@ -1147,7 +1147,7 @@ body {
 .site-footer {
   text-align: left;
   padding: 14px 0 20px;
-  color: #5a6a8a;
+  color: #6b7280;
 }
 
 .site-footer p {

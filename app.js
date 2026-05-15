@@ -559,7 +559,7 @@ function renderProcesos(modId) {
 
     const arrowHtml = i < mod.etapas.length - 1 ? `
       <div class="proc-arrow">
-        <svg viewBox="0 0 36 16" fill="none" stroke="#b0bec8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <svg viewBox="0 0 36 16" fill="none" stroke="#9ca3af" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
           <line x1="2" y1="8" x2="30" y2="8"/>
           <polyline points="23,2 30,8 23,14"/>
         </svg>

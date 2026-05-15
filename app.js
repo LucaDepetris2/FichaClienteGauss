@@ -21,6 +21,127 @@ const iconos = {
   'warn':       `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>`,
 };
 
+/* ---- Shape badge SVG paths (viewBox 0 0 24 18) ---- */
+const tipoShapes = {
+  'manual':       { label: 'Confección Manual',    color: '#4a7aaa', svg: '<rect x="1" y="1" width="22" height="16" rx="2" stroke-width="1.6"/>' },
+  'descarga-obl': { label: 'Descarga Obligatoria', color: '#2e8a52', svg: '<polygon points="5,1 23,1 19,17 1,17" stroke-width="1.6"/>' },
+  'descarga-opt': { label: 'Descarga Opcional',    color: '#d4882a', svg: '<rect x="1" y="1" width="22" height="16" rx="0" stroke-width="1.6"/><line x1="8" y1="1" x2="8" y2="17"/><line x1="16" y1="1" x2="16" y2="17"/>' },
+  'automatico':   { label: 'Comprobante Automático', color: '#6a2a9a', svg: '<path d="M1,1 H23 V12 Q17,18 12,18 Q7,18 1,12 Z" stroke-width="1.6"/>' },
+};
+
+/* ---- Behavior icon definitions ---- */
+const procIconos = {
+  'validar-stock':  { emoji: '🔍', label: 'Valida Stock'          },
+  'suma-stock':     { emoji: '📦', label: '+Suma Stock', prefix: '+' },
+  'resta-stock':    { emoji: '📦', label: '−Resta Stock', prefix: '−' },
+  'afecta-cont':    { emoji: '📋', label: 'Afecta Contabilidad'   },
+  'liq-iva':        { emoji: '🔢', label: 'Liquida IVA'           },
+  'liq-perc':       { emoji: '➕', label: 'Liquida Percepción'    },
+  'electronico':    { emoji: '🌐', label: 'Electrónico'           },
+  'valorizado':     { emoji: '💰', label: 'Valorizado'            },
+  'autorizable':    { emoji: '🔒', label: 'Autorizable'           },
+  'confeccion':     { emoji: '✅', label: 'Confección'            },
+};
+
+const procesos = {
+  ventas: {
+    label: 'Ventas',
+    etapas: [
+      {
+        nombre: 'Pedido',
+        tipo: 'manual',
+        iconos: ['validar-stock'],
+        params: [
+          { label: 'Reserva stock',         val: false },
+          { label: 'Asiento contable',       val: false },
+          { label: 'Imprime automático',     val: false },
+          { label: 'Requiere autorización',  val: false },
+          { label: 'Actualiza costos',       val: false },
+        ],
+      },
+      {
+        nombre: 'Remito',
+        tipo: 'descarga-obl',
+        iconos: ['resta-stock', 'afecta-cont', 'valorizado'],
+        params: [
+          { label: 'Reserva stock',         val: true  },
+          { label: 'Asiento contable',       val: true  },
+          { label: 'Imprime automático',     val: false },
+          { label: 'Requiere autorización',  val: false },
+          { label: 'Actualiza costos',       val: false },
+        ],
+      },
+      {
+        nombre: 'Factura A/B',
+        tipo: 'descarga-obl',
+        iconos: ['resta-stock', 'afecta-cont', 'electronico', 'liq-iva'],
+        params: [
+          { label: 'Reserva stock',         val: false },
+          { label: 'Asiento contable',       val: true  },
+          { label: 'Imprime automático',     val: true  },
+          { label: 'Requiere autorización',  val: false },
+          { label: 'Actualiza costos',       val: false },
+        ],
+        alerta: 'Comprobante electrónico activo (AFIP)',
+      },
+      {
+        nombre: 'Recibo',
+        tipo: 'automatico',
+        iconos: ['afecta-cont', 'valorizado'],
+        params: [
+          { label: 'Reserva stock',         val: false },
+          { label: 'Asiento contable',       val: true  },
+          { label: 'Imprime automático',     val: true  },
+          { label: 'Requiere autorización',  val: false },
+          { label: 'Actualiza costos',       val: false },
+        ],
+      },
+    ],
+  },
+  compras: {
+    label: 'Compras',
+    etapas: [
+      {
+        nombre: 'Orden de Compra',
+        tipo: 'manual',
+        iconos: ['autorizable'],
+        params: [
+          { label: 'Reserva stock',         val: false },
+          { label: 'Asiento contable',       val: false },
+          { label: 'Imprime automático',     val: false },
+          { label: 'Requiere autorización',  val: true  },
+          { label: 'Actualiza costos',       val: false },
+        ],
+        alerta: 'Requiere autorización de gerencia',
+      },
+      {
+        nombre: 'Recepción',
+        tipo: 'descarga-opt',
+        iconos: ['suma-stock', 'afecta-cont'],
+        params: [
+          { label: 'Reserva stock',         val: false },
+          { label: 'Asiento contable',       val: true  },
+          { label: 'Imprime automático',     val: false },
+          { label: 'Requiere autorización',  val: false },
+          { label: 'Actualiza costos',       val: true  },
+        ],
+      },
+      {
+        nombre: 'Factura Proveedor',
+        tipo: 'manual',
+        iconos: ['afecta-cont', 'liq-iva', 'liq-perc'],
+        params: [
+          { label: 'Reserva stock',         val: false },
+          { label: 'Asiento contable',       val: true  },
+          { label: 'Imprime automático',     val: false },
+          { label: 'Requiere autorización',  val: false },
+          { label: 'Actualiza costos',       val: true  },
+        ],
+      },
+    ],
+  },
+};
+
 const contable = {
   costos: {
     metodoActivo: 'ultima-compra',
@@ -398,6 +519,76 @@ document.getElementById('tab-contable').addEventListener('click', e => {
 });
 
 /* =====================
+   RENDER PROCESOS
+   ===================== */
+function renderProcesos(modId) {
+  const mod = procesos[modId];
+  const flow = document.getElementById('procesoFlow');
+
+  flow.innerHTML = mod.etapas.map((etapa, i) => {
+    const shape = tipoShapes[etapa.tipo];
+
+    const tipoBadge = `
+      <div class="proc-tipo-badge">
+        <svg viewBox="0 0 24 18" fill="none" stroke="${shape.color}" stroke-linecap="round" stroke-linejoin="round">
+          ${shape.svg}
+        </svg>
+        <span class="proc-tipo-label" style="color:${shape.color}">${shape.label}</span>
+      </div>`;
+
+    const iconosHtml = etapa.iconos.map(key => {
+      const ic = procIconos[key];
+      return `<span class="proc-icono-tag" title="${ic.label}">${ic.emoji} ${ic.label}</span>`;
+    }).join('');
+
+    const paramsHtml = etapa.params.map(p => `
+      <div class="proc-param">
+        <span class="proc-param-dot ${p.val ? 'activo' : 'inactivo'}"></span>
+        <span class="proc-param-label">${p.label}</span>
+        <span class="proc-param-val ${p.val ? 'activo' : 'inactivo'}">${p.val ? 'Sí' : 'No'}</span>
+      </div>`).join('');
+
+    const alertaHtml = etapa.alerta ? `
+      <div class="proc-alerta">
+        <svg class="proc-alerta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+          <line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+        </svg>
+        ${etapa.alerta}
+      </div>` : '';
+
+    const arrowHtml = i < mod.etapas.length - 1 ? `
+      <div class="proc-arrow">
+        <svg viewBox="0 0 36 16" fill="none" stroke="#b0bec8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="2" y1="8" x2="30" y2="8"/>
+          <polyline points="23,2 30,8 23,14"/>
+        </svg>
+      </div>` : '';
+
+    return `
+      <div class="proc-step">
+        <div class="proc-card tipo-${etapa.tipo}">
+          <div class="proc-card-top">${tipoBadge}</div>
+          <h3 class="proc-nombre">${etapa.nombre}</h3>
+          <div class="proc-iconos">${iconosHtml}</div>
+          <div class="proc-params">${paramsHtml}</div>
+          ${alertaHtml}
+        </div>
+        ${arrowHtml}
+      </div>`;
+  }).join('');
+}
+
+/* Module button event delegation */
+document.getElementById('procModNav').addEventListener('click', e => {
+  const btn = e.target.closest('.proc-mod-btn');
+  if (!btn) return;
+  document.querySelectorAll('.proc-mod-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderProcesos(btn.dataset.mod);
+});
+
+/* =====================
    INIT
    ===================== */
 renderProgramas();
@@ -406,3 +597,4 @@ renderIntegraciones();
 renderEspeciales();
 renderUsuarios();
 renderContable();
+renderProcesos('ventas');

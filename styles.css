@@ -8,7 +8,7 @@
 }
 
 body {
-  font-family: 'Segoe UI', Arial, sans-serif;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
   background-color: #e8eef4;
   color: #1a2a4a;
   min-height: 100vh;
@@ -284,6 +284,246 @@ body {
   .program-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* ============================
+   PROCESOS
+   ============================ */
+
+/* Module sub-nav */
+.proc-modnav {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.proc-mod-btn {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 20px;
+  border: 2px solid #dde4ec;
+  border-radius: 8px;
+  background: #fff;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #5a6a8a;
+  text-transform: uppercase;
+  transition: border-color 0.18s, color 0.18s, background 0.18s;
+}
+
+.proc-mod-btn:hover {
+  border-color: #2e8a52;
+  color: #2e8a52;
+}
+
+.proc-mod-btn.active {
+  border-color: #2e8a52;
+  color: #2e8a52;
+  background: #f0f8f4;
+}
+
+/* Flow container */
+.proc-flow-wrap {
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+
+.proc-flow {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  min-width: max-content;
+  padding: 4px 2px 12px;
+}
+
+/* Step = card + optional arrow */
+.proc-step {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+/* Arrow connector */
+.proc-arrow {
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  color: #8a9ab0;
+  flex-shrink: 0;
+}
+
+.proc-arrow svg {
+  width: 36px;
+  height: 16px;
+}
+
+/* Card */
+.proc-card {
+  width: 220px;
+  background: #fff;
+  border: 1.5px solid #dde4ec;
+  border-radius: 12px;
+  padding: 14px 14px 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  transition: box-shadow 0.18s, border-color 0.18s;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.proc-card:hover {
+  box-shadow: 0 4px 18px rgba(46,138,82,0.12);
+  border-color: #9acdb0;
+}
+
+/* Shape type stripe on left edge */
+.proc-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  border-radius: 12px 0 0 12px;
+  background: #c0ccd8;
+}
+
+.proc-card.tipo-manual::before         { background: #4a7aaa; }
+.proc-card.tipo-descarga-obl::before   { background: #2e8a52; }
+.proc-card.tipo-descarga-opt::before   { background: #d4882a; }
+.proc-card.tipo-automatico::before     { background: #6a2a9a; }
+
+/* Card top row: shape badge + type label */
+.proc-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  padding-left: 6px;
+}
+
+.proc-tipo-badge {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.proc-tipo-badge svg {
+  width: 26px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.proc-tipo-label {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #8a9ab0;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* Icon tags row */
+.proc-iconos {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+  padding-left: 6px;
+}
+
+.proc-icono-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 2px 7px;
+  border-radius: 12px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  white-space: nowrap;
+  background: #f0f4f8;
+  color: #4a5a7a;
+  border: 1px solid #e0e8f0;
+}
+
+/* Process name */
+.proc-nombre {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1a2a4a;
+  margin-bottom: 12px;
+  padding-left: 6px;
+  line-height: 1.25;
+}
+
+/* Params list */
+.proc-params {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding-left: 6px;
+  border-top: 1px solid #edf1f6;
+  padding-top: 10px;
+  margin-bottom: 8px;
+}
+
+.proc-param {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.73rem;
+}
+
+.proc-param-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.proc-param-dot.activo   { background: #2e8a52; }
+.proc-param-dot.inactivo { background: #c0ccd8; }
+
+.proc-param-label {
+  flex: 1;
+  color: #5a6a8a;
+}
+
+.proc-param-val {
+  font-weight: 700;
+  font-size: 0.7rem;
+  padding: 1px 6px;
+  border-radius: 10px;
+}
+.proc-param-val.activo   { background: #e8f5ee; color: #2e7a4a; }
+.proc-param-val.inactivo { background: #f0f4f8; color: #8a9ab0; }
+
+/* Alert strip */
+.proc-alerta {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  margin-top: 6px;
+  padding: 7px 10px 7px 8px;
+  background: #fff8e8;
+  border: 1px solid #e8c860;
+  border-radius: 6px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #7a5a00;
+  line-height: 1.4;
+}
+
+.proc-alerta-icon {
+  flex-shrink: 0;
+  margin-top: 1px;
+  width: 14px;
+  height: 14px;
+  color: #d4882a;
 }
 
 /* ============================

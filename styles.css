@@ -1,0 +1,243 @@
+/* ============================
+   RESET & BASE
+   ============================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background-color: #e8eef4;
+  color: #1a2a4a;
+  min-height: 100vh;
+}
+
+/* ============================
+   PAGE WRAPPER
+   ============================ */
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ============================
+   HEADER
+   ============================ */
+.site-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 24px 0 20px;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.site-tagline {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #1a2a4a;
+  text-transform: uppercase;
+}
+
+.tagline-muted {
+  font-weight: 400;
+  color: #5a6a8a;
+}
+
+.company-name {
+  font-size: 2.6rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: #1a2a4a;
+  line-height: 1.1;
+}
+
+.company-subtitle {
+  font-size: 0.9rem;
+  color: #5a6a8a;
+  margin-top: 2px;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.select-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #1a2a4a;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.empresa-select {
+  appearance: auto;
+  padding: 8px 32px 8px 12px;
+  font-size: 0.9rem;
+  font-family: inherit;
+  color: #1a2a4a;
+  background-color: #fff;
+  border: 1.5px solid #c0ccd8;
+  border-radius: 6px;
+  cursor: pointer;
+  min-width: 180px;
+  transition: border-color 0.2s;
+}
+
+.empresa-select:focus {
+  outline: none;
+  border-color: #2e8a52;
+}
+
+/* ============================
+   NAV TABS
+   ============================ */
+.tab-nav {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.tab-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 20px;
+  background: #fff;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #1a2a4a;
+  text-transform: uppercase;
+  transition: border-color 0.2s, color 0.2s;
+  flex: 1;
+  min-width: 90px;
+}
+
+.tab-btn:hover {
+  border-color: #2e8a52;
+  color: #2e8a52;
+}
+
+.tab-btn.active {
+  border-color: #2e8a52;
+  color: #2e8a52;
+}
+
+.tab-icon {
+  width: 28px;
+  height: 28px;
+  stroke: currentColor;
+}
+
+/* ============================
+   CONTENT AREA
+   ============================ */
+.content-area {
+  flex: 1;
+  background: #fff;
+  border-radius: 12px;
+  padding: 36px 40px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  min-height: 320px;
+}
+
+.tab-panel {
+  display: none;
+  animation: fadeIn 0.2s ease;
+}
+
+.tab-panel.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.panel-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #1a2a4a;
+  margin-bottom: 16px;
+  border-bottom: 2px solid #e8eef4;
+  padding-bottom: 10px;
+}
+
+.content-area p {
+  font-size: 0.95rem;
+  color: #4a5a7a;
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+
+/* ============================
+   FOOTER
+   ============================ */
+.site-footer {
+  text-align: left;
+  padding: 14px 0 20px;
+  color: #5a6a8a;
+}
+
+.site-footer p {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  line-height: 1.6;
+}
+
+/* ============================
+   RESPONSIVE
+   ============================ */
+@media (max-width: 768px) {
+  .company-name {
+    font-size: 1.8rem;
+  }
+
+  .tab-btn {
+    padding: 10px 12px;
+    font-size: 0.65rem;
+    min-width: 70px;
+  }
+
+  .tab-icon {
+    width: 22px;
+    height: 22px;
+  }
+
+  .content-area {
+    padding: 24px 20px;
+  }
+
+  .header-right {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}

@@ -13,7 +13,85 @@ const iconos = {
   'truck':      `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>`,
   'bot':        `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4"/><line x1="8" y1="16" x2="8.01" y2="16"/><line x1="16" y1="16" x2="16.01" y2="16"/></svg>`,
   'chart':      `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/></svg>`,
+  'cog':        `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>`,
+  'credit-card':`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>`,
+  'code':       `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>`,
+  'hierarchy':  `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="1" width="6" height="4" rx="1"/><rect x="1" y="19" width="6" height="4" rx="1"/><rect x="9" y="19" width="6" height="4" rx="1"/><rect x="17" y="19" width="6" height="4" rx="1"/><line x1="12" y1="5" x2="12" y2="10"/><line x1="4" y1="19" x2="4" y2="14"/><line x1="12" y1="19" x2="12" y2="14"/><line x1="20" y1="19" x2="20" y2="14"/><line x1="4" y1="14" x2="20" y2="14"/></svg>`,
+  'book':       `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>`,
+  'warn':       `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>`,
 };
+
+const contable = {
+  costos: {
+    metodoActivo: 'ultima-compra',
+    opciones: [
+      { id: 'promedio',      label: 'Promedio Ponderado' },
+      { id: 'ultima-compra', label: 'Última Compra'      },
+      { id: 'fifo',          label: 'FIFO'               },
+    ],
+  },
+  impositivo: [
+    { id: 'retenciones',  label: 'Retenciones',          activo: true },
+    { id: 'percepciones', label: 'Percepciones de IIBB', activo: true },
+    { id: 'iva',          label: 'IVA',                  activo: true },
+  ],
+  integracion: {
+    activa: true,
+    desc: 'La contabilidad está totalmente integrada con el sistema de farmacia.',
+  },
+};
+
+const usuarios = {
+  responsable: { nombre: 'Ing. Pedro Pacheco', seed: 'PedroPacheco' },
+  lista: [
+    { nombre: 'Marta Gómez',     seed: 'MartaGomez'     },
+    { nombre: 'Laura Rodríguez', seed: 'LauraRodriguez'  },
+    { nombre: 'Marta Rodríguez', seed: 'MartaRodriguez2' },
+    { nombre: 'Carlos Pérez',    seed: 'CarlosPerez'     },
+    { nombre: 'Juan Martínez',   seed: 'JuanMartinez'    },
+    { nombre: 'Sofía García',    seed: 'SofiaGarcia'     },
+    { nombre: 'Liera García',    seed: 'LieraGarcia'     },
+    { nombre: 'Carva Pérez',     seed: 'CarvaPerez'      },
+    { nombre: 'Barrey Hanlen',   seed: 'BarreyHanlen'    },
+    { nombre: 'Caroe Rodríguez', seed: 'CaroeRodriguez'  },
+    { nombre: 'Juiría Solís',    seed: 'JuiriaSolis'     },
+  ],
+};
+
+const especiales = [
+  {
+    categoria: 'Especiales del Cliente',
+    tipo: 'normal',
+    items: [
+      { nombre: 'Perfiles de Descuento',       icono: 'cog'  },
+      { nombre: 'Reglas de Compra Específicas', icono: 'cart' },
+    ],
+  },
+  {
+    categoria: 'Desarrollos Personalizados',
+    tipo: 'normal',
+    items: [
+      { nombre: 'Módulo de Reportes Personalizados', icono: 'code'        },
+      { nombre: 'Integración Pasarela Pagos Local',  icono: 'credit-card' },
+    ],
+  },
+  {
+    categoria: 'Descripción Funcional',
+    tipo: 'normal',
+    items: [
+      { nombre: 'Lógica Perfiles Descuento',         icono: 'hierarchy' },
+      { nombre: 'Resumen Funcional Módulo Reportes',  icono: 'book'      },
+    ],
+  },
+  {
+    categoria: 'Observaciones y Alertas',
+    tipo: 'alertas',
+    items: [
+      { nombre: 'Alerta Flujo Pago No Estándar',     desc: 'Proceso de checkout difiere del estándar, requiere atención especial ...' },
+      { nombre: 'Configuración Impuestos Sucursal 2', desc: 'Proceso de checkout difiere del estándar, requiere atención especial ...' },
+    ],
+  },
+];
 
 const integraciones = [
   {
@@ -73,6 +151,8 @@ const programas = [
 const tabButtons = document.querySelectorAll('.tab-btn');
 const tabPanels  = document.querySelectorAll('.tab-panel');
 
+const contentArea = document.querySelector('.content-area');
+
 tabButtons.forEach(btn => {
   btn.addEventListener('click', () => {
     const target = btn.dataset.tab;
@@ -80,6 +160,9 @@ tabButtons.forEach(btn => {
     tabPanels.forEach(p => p.classList.remove('active'));
     btn.classList.add('active');
     document.getElementById('tab-' + target).classList.add('active');
+    contentArea.classList.toggle('especiales-bg',   target === 'especiales');
+    contentArea.classList.toggle('usuarios-active', target === 'usuarios');
+    contentArea.classList.toggle('contable-active', target === 'contable');
   });
 });
 
@@ -160,8 +243,166 @@ function renderIntegraciones() {
 }
 
 /* =====================
+   RENDER ESPECIALES
+   ===================== */
+function renderEspeciales() {
+  const grid = document.getElementById('especialesGrid');
+  const iconBg    = '#fdf0d0';
+  const iconColor = '#8a6000';
+
+  grid.innerHTML = especiales.map(grupo => {
+    const itemsHtml = grupo.tipo === 'alertas'
+      ? grupo.items.map(item => `
+          <div class="alerta-item">
+            <div class="alerta-item-header">
+              <span class="alerta-warn-icon">${iconos['warn']}</span>
+              <span class="alerta-nombre">${item.nombre}</span>
+              <button class="info-btn" title="Más información">ⓘ</button>
+            </div>
+            <p class="alerta-desc">${item.desc}</p>
+          </div>
+        `).join('')
+      : grupo.items.map(item => `
+          <div class="especial-item">
+            <div class="item-icon-box" style="background:${iconBg}; color:${iconColor}">
+              ${iconos[item.icono]}
+            </div>
+            <span class="item-nombre">${item.nombre}</span>
+            <button class="info-btn" title="Más información">ⓘ</button>
+          </div>
+        `).join('');
+
+    return `
+      <div class="especial-grupo">
+        <p class="especial-grupo-titulo">${grupo.categoria}</p>
+        <div class="especial-items">${itemsHtml}</div>
+      </div>
+    `;
+  }).join('');
+}
+
+/* =====================
+   RENDER USUARIOS
+   ===================== */
+function avatarUrl(seed) {
+  return `https://api.dicebear.com/9.x/avataaars/svg?seed=${encodeURIComponent(seed)}&backgroundColor=b6e3f4,c0aede,ffd5dc,ffdfbf,d1d4f9`;
+}
+
+function renderUsuarios() {
+  const total = 1 + usuarios.lista.length;
+  document.getElementById('usuariosTotal').textContent = total;
+
+  const grid = document.getElementById('usuariosGrid');
+
+  const responsableHtml = `
+    <div class="usuario-card responsable">
+      <img class="usuario-avatar" src="${avatarUrl(usuarios.responsable.seed)}" alt="${usuarios.responsable.nombre}" />
+      <div class="usuario-info">
+        <span class="responsable-label">Responsable Principal</span>
+        <span class="usuario-nombre">${usuarios.responsable.nombre}</span>
+      </div>
+      <button class="info-btn" title="Más información">ⓘ</button>
+    </div>
+  `;
+
+  const listaHtml = usuarios.lista.map(u => `
+    <div class="usuario-card">
+      <img class="usuario-avatar" src="${avatarUrl(u.seed)}" alt="${u.nombre}" />
+      <div class="usuario-info">
+        <span class="usuario-nombre">${u.nombre}</span>
+      </div>
+      <button class="info-btn" title="Más información">ⓘ</button>
+    </div>
+  `).join('');
+
+  grid.innerHTML = responsableHtml + listaHtml;
+}
+
+/* =====================
+   RENDER CONTABLE
+   ===================== */
+function renderCostos() {
+  document.getElementById('costosContainer').innerHTML = `
+    <p class="contable-section-title">Métodos de Actualización<br>Actualización de Costos</p>
+    ${contable.costos.opciones.map(op => {
+      const sel = contable.costos.metodoActivo === op.id;
+      return `
+        <div class="costo-option${sel ? ' selected' : ''}" data-costo-id="${op.id}">
+          <span class="vfp-radio">${sel ? '⊙&nbsp;(●)' : '○&nbsp;(&nbsp;)'}</span>
+          <span class="costo-label">${op.label}</span>
+          <button class="info-btn" title="Más información">ⓘ</button>
+        </div>`;
+    }).join('')}
+  `;
+}
+
+function renderImpositivo() {
+  document.getElementById('impositivoContainer').innerHTML = `
+    <p class="contable-section-title">Cálculos Impositivos<br>Automáticos</p>
+    ${contable.impositivo.map(item => `
+      <div class="impositivo-row">
+        <span class="imp-label">${item.label}</span>
+        <button class="toggle-si${item.activo ? ' active' : ''}"
+                data-imp-id="${item.id}" data-val="true">Sí</button>
+        <button class="toggle-no${!item.activo ? ' active' : ''}"
+                data-imp-id="${item.id}" data-val="false">[No]</button>
+        <button class="info-btn" title="Más información">ⓘ</button>
+      </div>
+    `).join('')}
+  `;
+}
+
+function renderContabilidadSection() {
+  document.getElementById('contabilidadContainer').innerHTML = `
+    <p class="contable-section-title">Integración Contable<br>con el Sistema</p>
+    <div class="int-check-wrap">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#2e8a52" stroke-width="2.5"
+           stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="20 6 9 17 4 12"/>
+      </svg>
+    </div>
+    <div class="int-box">
+      <span class="int-box-icon">✅</span>
+      <span class="int-box-text">Integración Contable Activa</span>
+      <button class="info-btn" title="Más información">ⓘ</button>
+    </div>
+    <p class="int-desc">${contable.integracion.desc}</p>
+  `;
+}
+
+function renderContable() {
+  renderCostos();
+  renderImpositivo();
+  renderContabilidadSection();
+}
+
+/* Event delegation for Contable interactions */
+document.getElementById('tab-contable').addEventListener('click', e => {
+  if (e.target.classList.contains('info-btn')) return;
+
+  const costoOpt = e.target.closest('.costo-option');
+  if (costoOpt) {
+    contable.costos.metodoActivo = costoOpt.dataset.costoId;
+    renderCostos();
+    return;
+  }
+
+  const toggleBtn = e.target.closest('[data-imp-id]');
+  if (toggleBtn) {
+    const item = contable.impositivo.find(i => i.id === toggleBtn.dataset.impId);
+    if (item) {
+      item.activo = toggleBtn.dataset.val === 'true';
+      renderImpositivo();
+    }
+  }
+});
+
+/* =====================
    INIT
    ===================== */
 renderProgramas();
 renderApis();
 renderIntegraciones();
+renderEspeciales();
+renderUsuarios();
+renderContable();

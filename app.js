@@ -1,6 +1,11 @@
 /* =====================
    DATA
    ===================== */
+const apis = [
+  { nombre: 'API Mercado Libre', estado: 'activa',   estadoTexto: 'Activa'   },
+  { nombre: 'API WhatsApp',      estado: 'inactiva', estadoTexto: 'Inactiva' },
+];
+
 const programas = [
   {
     nombre: 'Replicador',
@@ -61,9 +66,31 @@ function renderProgramas() {
   `).join('');
 }
 
-empresaSelect.addEventListener('change', renderProgramas);
+/* =====================
+   RENDER APIS
+   ===================== */
+function renderApis() {
+  const empresa = getEmpresaNombre();
+  const tbody = document.getElementById('apiTableBody');
+
+  tbody.innerHTML = apis.map(a => `
+    <tr>
+      <td><span class="status-dot ${a.estado}"></span></td>
+      <td class="api-nombre">${a.nombre}</td>
+      <td class="api-empresa">${empresa}</td>
+      <td class="api-estado-texto">${a.estadoTexto}</td>
+      <td><button class="info-btn" title="Más información">ⓘ</button></td>
+    </tr>
+  `).join('');
+}
+
+empresaSelect.addEventListener('change', () => {
+  renderProgramas();
+  renderApis();
+});
 
 /* =====================
    INIT
    ===================== */
 renderProgramas();
+renderApis();

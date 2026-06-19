@@ -272,6 +272,38 @@ const programas = [
   },
 ];
 
+const unidades = [
+  { u: 'Ventas',       e: 'C', o: 'Circuito completo y probado'              },
+  { u: 'Compras',      e: 'C', o: 'OK'                                       },
+  { u: 'Stock',        e: 'P', o: 'Falta validar depósito Suc. 2'            },
+  { u: 'Caja',         e: 'C', o: 'OK'                                       },
+  { u: 'Banco',        e: 'P', o: 'Conciliación pendiente de validar'        },
+  { u: 'Contabilidad', e: 'P', o: 'Plan de cuentas en revisión'              },
+  { u: 'Replicador',   e: 'C', o: 'Sincronización activa entre sucursales'   },
+  { u: 'Fiscal',       e: 'C', o: 'Activo con AFIP'                          },
+];
+
+const capacitacion = {
+  usuarios: [
+    { nombre: 'Ing. Pedro Pacheco', area: 'Administración General', fecha: '10/02/2025' },
+    { nombre: 'Marta Gómez',        area: 'Ventas / Facturación',   fecha: '12/02/2025' },
+    { nombre: 'Laura Rodríguez',    area: 'Stock / Compras',        fecha: '12/02/2025' },
+    { nombre: 'Carlos Pérez',       area: 'Caja / Banco',           fecha: '14/02/2025' },
+  ],
+  material: {
+    'Videos':        true,
+    'Manuales':      true,
+    'Guías rápidas': false,
+    'Acceso a demo': true,
+  },
+  fechaLanz: '01/03/2025',
+  acuerdos:  '8 semanas de seguimiento post-lanzamiento',
+  incidencias: [
+    { i: 'Demora en replicación entre sucursales', r: 'Se reconfiguró el servidor de replicación', f: '05/03/2025' },
+    { i: 'Error en liquidación de IVA exportación', r: 'Ajuste en parámetros de comprobante',     f: '10/03/2025' },
+  ],
+};
+
 const inicioOpciones = [
   { 
     nombre: 'Gestión de Programas', 
@@ -654,6 +686,56 @@ document.getElementById('procModNav').addEventListener('click', e => {
 });
 
 /* =====================
+   RENDER IMPLEMENTACION
+   ===================== */
+function renderImplementacion() {
+  const tbody = document.getElementById('implTableBody');
+  if (!tbody) return;
+
+  const pillMap = {
+    C: { cls: 'completo',  lbl: '✓ Completo' },
+    P: { cls: 'parcial',   lbl: 'Parcial'     },
+    X: { cls: 'pendiente', lbl: 'Pendiente'   },
+  };
+
+  tbody.innerHTML = unidades.map(row => {
+    const cols = ['C', 'P', 'X'].map(k => {
+      const on = row.e === k;
+      return `<td class="impl-pill-cell">${on
+        ? `<span class="impl-pill ${pillMap[k].cls}">${pillMap[k].lbl}</span>`
+        : `<span class="impl-pill empty">—</span>`
+      }</td>`;
+    }).join('');
+    return `<tr>
+      <td class="impl-unit">${row.u}</td>
+      ${cols}
+      <td class="impl-obs">${row.o || ''}</td>
+    </tr>`;
+  }).join('');
+}
+
+/* =====================
+   RENDER CAPACITACION
+   ===================== */
+function renderCapacitacion() {
+  const c = capacitacion;
+
+  document.getElementById('capUsuariosBody').innerHTML = c.usuarios.length
+    ? c.usuarios.map(u => `<tr><td>${u.nombre}</td><td>${u.area}</td><td>${u.fecha}</td></tr>`).join('')
+    : '<tr><td colspan="3" class="cap-nodata">Sin usuarios capacitados cargados.</td></tr>';
+
+  document.getElementById('capMaterial').innerHTML = Object.entries(c.material)
+    .map(([m, on]) => `<span class="mat-chip${on ? ' active' : ''}">${m}</span>`).join('');
+
+  document.getElementById('capFechaLanz').textContent = c.fechaLanz || '—';
+  document.getElementById('capAcuerdos').textContent  = c.acuerdos  || '—';
+
+  document.getElementById('capIncBody').innerHTML = c.incidencias.length
+    ? c.incidencias.map(x => `<tr><td>${x.i}</td><td>${x.r}</td><td>${x.f}</td></tr>`).join('')
+    : '<tr><td colspan="3" class="cap-nodata">Sin incidencias registradas.</td></tr>';
+}
+
+/* =====================
    RENDER INICIO
    ===================== */
 function renderInicio() {
@@ -688,4 +770,6 @@ renderEspeciales();
 renderUsuarios();
 renderContable();
 renderObservaciones();
+renderImplementacion();
+renderCapacitacion();
 renderProcesos('ventas');

@@ -251,6 +251,12 @@ const apis = [
   { nombre: 'API WhatsApp',      estado: 'inactiva', estadoTexto: 'Inactiva' },
 ];
 
+const datosTecnicos = {
+  suc1: { ip: '192.168.1.50', usuario: 'admin_pacheco', pass: 'Pach_2024!', version: 'v8.4.2' },
+  suc2: { ip: '192.168.2.110', usuario: 'sucursal_02', pass: 'Suc2_Secure*', version: 'v8.3.1' },
+  centro: { ip: '10.0.0.15', usuario: 'pacheco_centro', pass: 'Centro#9988', version: 'v8.4.2' },
+};
+
 const programas = [
   {
     nombre: 'Replicador',
@@ -266,24 +272,52 @@ const programas = [
   },
 ];
 
+const inicioOpciones = [
+  { 
+    nombre: 'Gestión de Programas', 
+    desc: 'Acceda a los programas críticos del sistema y sincronización de sucursales.',
+    tab: 'programas',
+    icono: 'book'
+  },
+  { 
+    nombre: 'Casos Especiales', 
+    desc: 'Revise comportamientos no estándar y desarrollos personalizados del cliente.',
+    tab: 'especiales',
+    icono: 'warn'
+  },
+  { 
+    nombre: 'Flujos de Procesos', 
+    desc: 'Visualice el estado de los procesos de ventas, compras y auditoría.',
+    tab: 'procesos',
+    icono: 'hierarchy'
+  },
+];
+
 /* =====================
    TABS
    ===================== */
 const tabButtons = document.querySelectorAll('.tab-btn');
 const tabPanels  = document.querySelectorAll('.tab-panel');
-
 const contentArea = document.querySelector('.content-area');
+
+function switchTab(target) {
+  tabButtons.forEach(b => b.classList.remove('active'));
+  tabPanels.forEach(p => p.classList.remove('active'));
+  
+  const btn = document.querySelector(`.tab-btn[data-tab="${target}"]`);
+  if (btn) btn.classList.add('active');
+  
+  const panel = document.getElementById('tab-' + target);
+  if (panel) panel.classList.add('active');
+  
+  contentArea.classList.toggle('especiales-bg',   target === 'especiales');
+  contentArea.classList.toggle('usuarios-active', target === 'usuarios');
+  contentArea.classList.toggle('contable-active', target === 'contable');
+}
 
 tabButtons.forEach(btn => {
   btn.addEventListener('click', () => {
-    const target = btn.dataset.tab;
-    tabButtons.forEach(b => b.classList.remove('active'));
-    tabPanels.forEach(p => p.classList.remove('active'));
-    btn.classList.add('active');
-    document.getElementById('tab-' + target).classList.add('active');
-    contentArea.classList.toggle('especiales-bg',   target === 'especiales');
-    contentArea.classList.toggle('usuarios-active', target === 'usuarios');
-    contentArea.classList.toggle('contable-active', target === 'contable');
+    switchTab(btn.dataset.tab);
   });
 });
 
@@ -334,9 +368,40 @@ function renderApis() {
   `).join('');
 }
 
+function getEmpresaId() {
+  return empresaSelect.value;
+}
+
+function renderObservaciones() {
+  const empId = getEmpresaId();
+  const data = datosTecnicos[empId];
+  const grid = document.getElementById('obsTechGrid');
+  if (!grid) return;
+
+  grid.innerHTML = `
+    <div class="obs-tech-item">
+      <span class="obs-tech-label">IP de Conexión</span>
+      <span class="obs-tech-value">${data.ip}</span>
+    </div>
+    <div class="obs-tech-item">
+      <span class="obs-tech-label">Usuario</span>
+      <span class="obs-tech-value">${data.usuario}</span>
+    </div>
+    <div class="obs-tech-item">
+      <span class="obs-tech-label">Contraseña</span>
+      <span class="obs-tech-value">${data.pass}</span>
+    </div>
+    <div class="obs-tech-item">
+      <span class="obs-tech-label">Versión del Sistema</span>
+      <span class="obs-tech-value version">${data.version}</span>
+    </div>
+  `;
+}
+
 empresaSelect.addEventListener('change', () => {
   renderProgramas();
   renderApis();
+  renderObservaciones();
 });
 
 /* =====================
@@ -589,12 +654,38 @@ document.getElementById('procModNav').addEventListener('click', e => {
 });
 
 /* =====================
+   RENDER INICIO
+   ===================== */
+function renderInicio() {
+  const grid = document.getElementById('inicioGrid');
+  if (!grid) return;
+
+  grid.innerHTML = inicioOpciones.map(opt => `
+    <div class="inicio-card" data-target-tab="${opt.tab}">
+      <div class="inicio-card-icon">
+        ${iconos[opt.icono]}
+      </div>
+      <h3 class="inicio-card-title">${opt.nombre}</h3>
+      <p class="inicio-card-desc">${opt.desc}</p>
+    </div>
+  `).join('');
+
+  grid.querySelectorAll('.inicio-card').forEach(card => {
+    card.addEventListener('click', () => {
+      switchTab(card.dataset.targetTab);
+    });
+  });
+}
+
+/* =====================
    INIT
    ===================== */
+renderInicio();
 renderProgramas();
 renderApis();
 renderIntegraciones();
 renderEspeciales();
 renderUsuarios();
 renderContable();
+renderObservaciones();
 renderProcesos('ventas');

@@ -1158,6 +1158,165 @@ body {
 }
 
 /* ============================
+   INICIO (DASHBOARD)
+   ============================ */
+.inicio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.inicio-card {
+  background: #fff;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.inicio-card:hover {
+  border-color: #2e8a52;
+  box-shadow: 0 8px 24px rgba(46, 138, 82, 0.12);
+  transform: translateY(-2px);
+}
+
+.inicio-card::after {
+  content: '→';
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  font-size: 1.4rem;
+  color: #2e8a52;
+  opacity: 0;
+  transition: all 0.2s ease;
+}
+
+.inicio-card:hover::after {
+  opacity: 1;
+  right: 15px;
+}
+
+.inicio-card-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f0f8f4;
+  color: #2e8a52;
+  margin-bottom: 4px;
+}
+
+.inicio-card-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.inicio-card-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.inicio-card-desc {
+  font-size: 0.9rem;
+  color: #6b7280;
+  line-height: 1.5;
+}
+
+/* ============================
+   OBSERVACIONES
+   ============================ */
+.obs-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.obs-tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+  background: #f9fafb;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1.5px solid #e5e7eb;
+}
+
+.obs-tech-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.obs-tech-label {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.obs-tech-value {
+  font-family: 'Courier New', monospace;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1f2937;
+  background: #fff;
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  word-break: break-all;
+}
+
+.obs-tech-value.version {
+  color: #2e8a52;
+  border-color: #b0cfc0;
+  background: #f0f8f4;
+}
+
+.obs-notes-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.obs-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.obs-textarea {
+  width: 100%;
+  min-height: 240px;
+  padding: 16px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: #374151;
+  background: #fff;
+  border: 1.5px solid #d1d5db;
+  border-radius: 10px;
+  resize: vertical;
+  line-height: 1.6;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.obs-textarea:focus {
+  outline: none;
+  border-color: #2e8a52;
+  box-shadow: 0 0 0 4px rgba(46, 138, 82, 0.1);
+}
+
+/* ============================
    RESPONSIVE
    ============================ */
 @media (max-width: 768px) {
